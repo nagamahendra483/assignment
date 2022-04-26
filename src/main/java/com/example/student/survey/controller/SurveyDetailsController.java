@@ -17,8 +17,8 @@ public class SurveyDetailsController {
     SurveyDetailsService surveyDetailsService;
 
     @GetMapping(value = "/getAllDetails")
-    public ResponseEntity<List<SurveyDetails>> getAllDetails(){
-        List<SurveyDetails> surveyDetails=surveyDetailsService.findAll();
+    public ResponseEntity<List<SurveyDetails>> getAllDetailsByUserName(@RequestParam String userName){
+        List<SurveyDetails> surveyDetails=surveyDetailsService.findAllByUserName(userName);
         log.info(" All Survey Details Retrieved");
         return new ResponseEntity<>(surveyDetails,HttpStatus.OK);
     }

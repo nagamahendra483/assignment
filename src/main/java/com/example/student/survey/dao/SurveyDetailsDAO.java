@@ -7,6 +7,6 @@ import java.util.List;
 
 @RepositoryDefinition(domainClass = SurveyDetailsEntity.class,idClass = Integer.class)
 public interface SurveyDetailsDAO {
-    public List<SurveyDetailsEntity> findAll();
+    public List<SurveyDetailsEntity> findAllByUserName(String userName);
     public SurveyDetailsEntity save(SurveyDetailsEntity employeeEntity);
 }

@@ -16,8 +16,8 @@ public class SurveyDetailsServiceImpl implements SurveyDetailsService{
     SurveyDetailsDAO surveyDetailsDAO;
 
     @Override
-    public List<SurveyDetails> findAll() {
-        List<SurveyDetailsEntity> surveyDetailsEntities=surveyDetailsDAO.findAll();
+    public List<SurveyDetails> findAllByUserName(String userName) {
+        List<SurveyDetailsEntity> surveyDetailsEntities=surveyDetailsDAO.findAllByUserName(userName);
         List<SurveyDetails> surveyDetails=new ArrayList<SurveyDetails>();
         for (SurveyDetailsEntity surveyDetailsEntity :
                 surveyDetailsEntities) {
