@@ -10,25 +10,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * SurveyDetailsController save and retrieve survey details
+ * author Raasi
+ */
 @RestController
 @Slf4j
 public class SurveyDetailsController {
+
     @Autowired
     SurveyDetailsService surveyDetailsService;
 
-    @GetMapping(value = "/getAllDetails")
-    public ResponseEntity<List<SurveyDetails>> getAllDetailsByUserName(@RequestParam String userName){
-        List<SurveyDetails> surveyDetails=surveyDetailsService.findAllByUserName(userName);
+    @GetMapping(value = "/surveyDetails")
+    public ResponseEntity<List<SurveyDetails>> findAllSurveys() {
+        List<SurveyDetails> surveyDetails=surveyDetailsService.findAllSurveys();
         log.info(" All Survey Details Retrieved");
         return new ResponseEntity<>(surveyDetails,HttpStatus.OK);
     }
 
 
-    @PostMapping(value = "/add")
-    public ResponseEntity<SurveyDetails> addEmployee(
-            @RequestBody SurveyDetails SurveyDetails){
-        SurveyDetails surveyDetail=surveyDetailsService.save(SurveyDetails);
-        log.info("New Survey added with id {}",SurveyDetails.getId());
+    @PostMapping(value = "/saveSurvey")
+    public ResponseEntity<SurveyDetails> saveSurvey(
+            @RequestBody SurveyDetails surveyDetails) {
+        SurveyDetails surveyDetail = surveyDetailsService.saveSurvey(surveyDetails);
+        log.info("New Survey added with id {}",surveyDetail.getId());
         return new ResponseEntity<>(surveyDetail,HttpStatus.OK);
     }
 }

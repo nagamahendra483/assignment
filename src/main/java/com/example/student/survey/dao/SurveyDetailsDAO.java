@@ -5,8 +5,12 @@ import org.springframework.data.repository.RepositoryDefinition;
 
 import java.util.List;
 
+/**
+ * SurveyDetailsDAO save retrieve details from database
+ * author Raasi
+ */
 @RepositoryDefinition(domainClass = SurveyDetailsEntity.class,idClass = Integer.class)
 public interface SurveyDetailsDAO {
-    public List<SurveyDetailsEntity> findAllByUserName(String userName);
-    public SurveyDetailsEntity save(SurveyDetailsEntity employeeEntity);
+    List<SurveyDetailsEntity> findAll();
+    SurveyDetailsEntity save(SurveyDetailsEntity employeeEntity);
 }

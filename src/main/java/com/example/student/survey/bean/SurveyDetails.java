@@ -5,6 +5,10 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * SurveyDetails bean used to return details to UI
+ * author Raasi
+ */
 @Data
 public class SurveyDetails {
     @JsonIgnore
@@ -19,6 +23,7 @@ public class SurveyDetails {
     private String url;
     private LocalDateTime dateOfSurvey;
     private String interestedInUniversity;
+    // TODO comma separated should it be list
     private String campusOptions;
     private String highSchoolGradMonth;
     private String highSchoolGradYear;

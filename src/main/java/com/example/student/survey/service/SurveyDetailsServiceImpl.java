@@ -11,14 +11,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SurveyDetailsServiceImpl save and retrieve survey details from dao
+ * author Raasi
+ */
 @Service
 public class SurveyDetailsServiceImpl implements SurveyDetailsService{
     @Autowired
     SurveyDetailsDAO surveyDetailsDAO;
 
     @Override
-    public List<SurveyDetails> findAllByUserName(String userName) {
-        List<SurveyDetailsEntity> surveyDetailsEntities=surveyDetailsDAO.findAllByUserName(userName);
+    public List<SurveyDetails> findAllSurveys() {
+        List<SurveyDetailsEntity> surveyDetailsEntities = surveyDetailsDAO.findAll();
         List<SurveyDetails> surveyDetails=new ArrayList<SurveyDetails>();
         for (SurveyDetailsEntity surveyDetailsEntity :
                 surveyDetailsEntities) {
@@ -28,21 +32,21 @@ public class SurveyDetailsServiceImpl implements SurveyDetailsService{
     }
 
     @Override
-    public SurveyDetails save(SurveyDetails surveyDetails) {
+    public SurveyDetails saveSurvey(SurveyDetails surveyDetails) {
         surveyDetails.setDateOfSurvey(LocalDateTime.now());
-        SurveyDetailsEntity surveyDetailsEntity=convertBeanToEntity(surveyDetails);
-        surveyDetailsEntity=surveyDetailsDAO.save(surveyDetailsEntity);
+        SurveyDetailsEntity surveyDetailsEntity = convertBeanToEntity(surveyDetails);
+        surveyDetailsEntity = surveyDetailsDAO.save(surveyDetailsEntity);
         return convertEntityToBean(surveyDetailsEntity);
     }
 
     public SurveyDetails convertEntityToBean(SurveyDetailsEntity surveyDetailsEntity){
-        SurveyDetails surveyDetails=new SurveyDetails();
+        SurveyDetails surveyDetails = new SurveyDetails();
         BeanUtils.copyProperties(surveyDetailsEntity,surveyDetails);
         return surveyDetails;
     }
 
     public SurveyDetailsEntity convertBeanToEntity(SurveyDetails surveyDetails){
-        SurveyDetailsEntity surveyDetailsEntity=new SurveyDetailsEntity();
+        SurveyDetailsEntity surveyDetailsEntity = new SurveyDetailsEntity();
         BeanUtils.copyProperties(surveyDetails,surveyDetailsEntity);
         return  surveyDetailsEntity;
     }

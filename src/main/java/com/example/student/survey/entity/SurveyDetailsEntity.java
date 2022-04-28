@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * SurveyDetailsEntity entity used to save and retrieve details from database
+ * author Raasi
+ */
 @Entity
 @Table(name = "survey_details")
 @Data
