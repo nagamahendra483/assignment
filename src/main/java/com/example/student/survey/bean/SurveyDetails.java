@@ -1,11 +1,13 @@
 package com.example.student.survey.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 public class SurveyDetails {
+    @JsonIgnore
     private Integer id;
     private String userName;
     private String email;
@@ -15,7 +17,7 @@ public class SurveyDetails {
     private String state;
     private String zip;
     private String url;
-    private String dateOfSurvey;
+    private LocalDateTime dateOfSurvey;
     private String interestedInUniversity;
     private String campusOptions;
     private String highSchoolGradMonth;

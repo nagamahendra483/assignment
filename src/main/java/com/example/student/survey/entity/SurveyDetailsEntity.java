@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,7 +25,7 @@ public class SurveyDetailsEntity {
     private String state;
     private String zip;
     private String url;
-    private String dateOfSurvey;
+    private LocalDateTime dateOfSurvey;
     private String interestedInUniversity;
     private String campusOptions;
     private String highSchoolGradMonth;

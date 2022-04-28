@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class SurveyDetailsServiceImpl implements SurveyDetailsService{
 
     @Override
     public SurveyDetails save(SurveyDetails surveyDetails) {
+        surveyDetails.setDateOfSurvey(LocalDateTime.now());
         SurveyDetailsEntity surveyDetailsEntity=convertBeanToEntity(surveyDetails);
         surveyDetailsEntity=surveyDetailsDAO.save(surveyDetailsEntity);
         return convertEntityToBean(surveyDetailsEntity);

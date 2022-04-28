@@ -9,7 +9,7 @@ create table survey_details(
     state varchar(100),
     zip varchar(10),
     url varchar(100),
-    date_of_survey varchar(100),
+    date_of_survey timestamp,
     campus_options varchar(100),
     interested_in_university varchar(20),
     high_school_grad_month varchar(100),
