@@ -1,14 +1,11 @@
 package com.example.student.survey.entity;
 
+import com.example.student.survey.converter.MostLikedConverter;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * SurveyDetailsEntity entity used to save and retrieve details from database
@@ -21,19 +18,18 @@ public class SurveyDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String userName;
-    private String email;
+    private String firstName;
+    private String lastName;
+    private String streetAddress;
     private String telephoneNumber;
-    private String street;
     private String city;
     private String state;
     private String zip;
-    private String url;
-    private LocalDateTime dateOfSurvey;
-    private String interestedInUniversity;
-    private String campusOptions;
-    private String highSchoolGradMonth;
-    private String highSchoolGradYear;
-    private String comments;
-    private String recommendingOption;
+    private String email;
+    private LocalDate dateOfSurvey;
+    private String interestedIn;
+    @Convert(converter = MostLikedConverter.class)
+    private List<String> mostLiked;
+    private String recommending;
+    private String additionalComments;
 }

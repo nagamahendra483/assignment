@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @Slf4j
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SurveyDetailsController {
 
     @Autowired

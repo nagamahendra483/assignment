@@ -33,7 +33,6 @@ public class SurveyDetailsServiceImpl implements SurveyDetailsService{
 
     @Override
     public SurveyDetails saveSurvey(SurveyDetails surveyDetails) {
-        surveyDetails.setDateOfSurvey(LocalDateTime.now());
         SurveyDetailsEntity surveyDetailsEntity = convertBeanToEntity(surveyDetails);
         surveyDetailsEntity = surveyDetailsDAO.save(surveyDetailsEntity);
         return convertEntityToBean(surveyDetailsEntity);
