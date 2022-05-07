@@ -12,7 +12,6 @@ import java.util.List;
  */
 @Data
 public class SurveyDetails {
-    @JsonIgnore
     private Integer id;
     private String firstName;
     private String lastName;

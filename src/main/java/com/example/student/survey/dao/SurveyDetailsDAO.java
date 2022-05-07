@@ -13,4 +13,5 @@ import java.util.List;
 public interface SurveyDetailsDAO {
     List<SurveyDetailsEntity> findAll();
     SurveyDetailsEntity save(SurveyDetailsEntity employeeEntity);
+    void deleteById(Integer id);
 }

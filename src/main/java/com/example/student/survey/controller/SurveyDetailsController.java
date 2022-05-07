@@ -29,6 +29,13 @@ public class SurveyDetailsController {
         return new ResponseEntity<>(surveyDetails,HttpStatus.OK);
     }
 
+    @GetMapping(value = "/deleteSurvey")
+    public ResponseEntity<String> deleteSurvey(@RequestParam Integer id) {
+        surveyDetailsService.deleteById(id);
+        log.info("deleted Survey");
+        return new ResponseEntity<>("success",HttpStatus.OK);
+    }
+
 
     @PostMapping(value = "/saveSurvey")
     public ResponseEntity<SurveyDetails> saveSurvey(

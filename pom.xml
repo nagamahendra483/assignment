@@ -51,6 +51,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.tools</groupId>
+			<artifactId>appengine-maven-plugin</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -65,6 +71,15 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<deploy.projectId>java-application-349511</deploy.projectId>
+					<deploy.version>20220507t170909</deploy.version>
 				</configuration>
 			</plugin>
 			<plugin>

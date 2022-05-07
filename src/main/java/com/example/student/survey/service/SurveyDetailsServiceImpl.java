@@ -38,6 +38,11 @@ public class SurveyDetailsServiceImpl implements SurveyDetailsService{
         return convertEntityToBean(surveyDetailsEntity);
     }
 
+    @Override
+    public void deleteById(Integer id){
+        surveyDetailsDAO.deleteById(id);
+    }
+
     public SurveyDetails convertEntityToBean(SurveyDetailsEntity surveyDetailsEntity){
         SurveyDetails surveyDetails = new SurveyDetails();
         BeanUtils.copyProperties(surveyDetailsEntity,surveyDetails);
